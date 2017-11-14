@@ -1,0 +1,12 @@
+{
+  "apps": [{
+    "name": "beacon-app",
+    "script": "bin/www",
+    "watch": true,
+    "ignore_watch": ["[\\/\\\\]\\./", "node_modules", "log", "public", "views", "test"],
+    "error_file": "log/socket_err.log",
+    "out_file": "log/socket_out.log",
+    "merge_logs": true,
+    "log_date_format": "YYYY-MM-DD HH:mm:ss"
+  }]
+}

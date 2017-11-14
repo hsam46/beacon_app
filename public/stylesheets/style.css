@@ -1,0 +1,9 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: "微軟正黑體", "Noto Sans CJK TC", "Droid Sans Japanese", "思源黑體 TWHK Regular", "思源黑體", "Source Han Sans TWHK Medium", "Source Han Sans TWHK Medium", "Noto Sans CJK", "Noto Sans CJK Regular", sans-serif;
+}
+
+.highlightext {
+    font-weight: bold;
+    color: #eea236;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-tw" ng-app="mainApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <script src="javascripts/jquery-1.11.3.min.js"></script>
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/code.js"></script>
+    <script src="javascripts/socket.io.js"></script>
+
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<script>
+    //    var baseUrl = '192.168.13.1:3000';
+    var baseUrl = '<%= baseUrl %>';
+</script>
+<body ng-controller="tableService">
+<div class="col-md-12">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><%= title %> 取餐號管理</a>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-6">
+            <button contenteditable="true" class="btn btn-default" type="button" ng-click="filterItem(-1)">全部</button>
+            <button contenteditable="true" class="btn btn-default" type="button" ng-click="filterItem(1)">已啟用</button>
+            <button contenteditable="true" class="btn btn-default" type="button" ng-click="filterItem(0)">未啟用</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        名稱
+                    </th>
+                    <th>
+                        距離 (m)
+                    </th>
+                    <th class="text-center">
+                        操作 (啟用/停用/刪除)
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-class="getBeaconInfoColor(beaconItem.distance, beaconItem.updateTime)"
+                    ng-repeat="beaconItem in beaconListFilter | orderBy: 'name'">
+                    <td ng-class="getActiveStateStyle(beaconItem.isUse)">
+                        <!--<a href="javascript:void(0);" ng-click="">{{ beaconItem.name }}</a>-->
+                        {{ beaconItem.name }}
+                    </td>
+                    <td>
+                        {{ beaconItem.distance }}
+                    </td>
+                    <td class="text-center">
+                        <a href="javascript:void(0);" class="btn remove label label-success" ng-click="activeBeacon(beaconItem)">
+                            <i class="glyphicon glyphicon-ok"></i></a>
+                        <a href="javascript:void(0);" class="btn remove label label-danger" ng-click="inactiveBeacon(beaconItem)">
+                            <i class="glyphicon glyphicon-remove"></i></a>
+                        <a href="javascript:void(0);" class="btn remove label label-warning" ng-click="deleteBeacon(beaconItem)">
+                            <i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script src="javascripts/bootstrap.min.js"></script>
+
+<script src="angular/app.js"></script>
+<script src="angular/factories.js"></script>
+<script src="angular/controller.js"></script>
+</html>
