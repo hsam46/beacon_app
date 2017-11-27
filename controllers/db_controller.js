@@ -20,6 +20,12 @@ var dbHelper = {
             return cb && cb(err, replaceNum);
         });
     },
+    //增加欄位數值
+    incFieldVal: function (query, data, cb) {
+        db.update(query, {$inc: data}, {returnUpdatedDocs: true}, function (err, replaceNum, res) {
+            return cb && cb(err, res);
+        });
+    },
     //搜尋
     find: function (query, cb) {
         db.find(query, function (err, res) {

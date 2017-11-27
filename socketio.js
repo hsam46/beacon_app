@@ -8,6 +8,7 @@ module.exports = {
         io = require('socket.io')(server);
         require('./controllers/beacon_discover_controller').startDiscoverBeacons();
         require('./controllers/real_time_broacast_controller').init();
+        require('./controllers/beacon_data_controller').init();
 
         io.on('connection', function (socket) {
             console.log('Socket 連線成功');

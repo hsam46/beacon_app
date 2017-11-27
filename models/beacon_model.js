@@ -7,6 +7,7 @@ module.exports = {
             type: CODE.OBJECT_BEACON,
             address: obj.address,
             name: obj.localName || 'none',
+            serial: 0,
             rssi: obj.rssi,
             distance: calculateDistance(obj.rssi),
             isUse: 0,

@@ -1,6 +1,7 @@
 module.exports = {
     // Obeject Code
     OBJECT_BEACON: 5100,
+    OBJECT_ORDER_COUNTER: 5110,
 
     // Obeject Code
     // =====================================================

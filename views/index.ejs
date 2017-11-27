@@ -42,6 +42,9 @@
                         名稱
                     </th>
                     <th>
+                        序號
+                    </th>
+                    <th>
                         距離 (m)
                     </th>
                     <th class="text-center">
@@ -57,14 +60,17 @@
                         {{ beaconItem.name }}
                     </td>
                     <td>
+                        {{beaconItem.serial}}
+                    </td>
+                    <td>
                         {{ beaconItem.distance }}
                     </td>
                     <td class="text-center">
-                        <a href="javascript:void(0);" class="btn remove label label-success" ng-click="activeBeacon(beaconItem)">
+                        <a href="javascript:void(0);" class="btn remove label label-success" ng-if="!beaconItem.isUse" ng-click="activeBeacon(beaconItem)">
                             <i class="glyphicon glyphicon-ok"></i></a>
-                        <a href="javascript:void(0);" class="btn remove label label-danger" ng-click="inactiveBeacon(beaconItem)">
+                        <a href="javascript:void(0);" class="btn remove label label-danger" ng-if="beaconItem.isUse" ng-click="inactiveBeacon(beaconItem)">
                             <i class="glyphicon glyphicon-remove"></i></a>
-                        <a href="javascript:void(0);" class="btn remove label label-warning" ng-click="deleteBeacon(beaconItem)">
+                        <a href="javascript:void(0);" class="btn remove label label-warning" ng-if="!beaconItem.isUse" ng-click="deleteBeacon(beaconItem)">
                             <i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                 </tr>
